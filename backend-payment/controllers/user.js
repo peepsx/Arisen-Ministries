@@ -60,10 +60,10 @@ class Users {
         const errorss = validationResult(req);
         if (!errorss.isEmpty()) {
             console.log("errors on data save", errorss);
-            return res.status(201).json({ status: false, message: element.msg })
-            //  errorss.array().map(element => {
-            //         return res.status(201).json({ status: false, message: element.msg })
-            //     }).join(',')
+            //return res.status(201).json({ status: false, message: element.msg })
+             errorss.array().map(element => {
+                    return res.status(201).json({ status: false, message: element.msg })
+                }).join(',')
         }
         else {
             const { fName, lName, addressOne, addressTwo, city, state, zipcode, phoneNo, email, subscriptionId, subscriptionStatus } = req.body
