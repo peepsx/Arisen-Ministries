@@ -1,0 +1,11 @@
+// 
+// 
+// articles.scss
+//
+//
+
+article{
+  + article{
+    margin-top: $spacer*2;
+  }
+}

@@ -1,0 +1,21 @@
+// 
+// 
+// modals.scss
+//
+//
+
+.close{
+  text-shadow: none;
+  transition: opacity $transition-time-fast linear;
+  &:hover{
+    opacity: .9;
+  }
+}
+
+.modal-header{
+  p{
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}

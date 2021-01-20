@@ -1,0 +1,17 @@
+// 
+// 
+// sidebar.scss
+//
+//
+
+.sidebar{
+  .sticky-top{
+    top: $spacer*3.25;
+    z-index: 1;
+  }
+  &.portfolio-sidebar{
+    .sticky-top{
+      top: $spacer*4;
+    }
+  }
+}

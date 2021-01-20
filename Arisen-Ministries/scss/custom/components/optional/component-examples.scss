@@ -1,0 +1,56 @@
+// 
+// 
+// component-example.scss
+//
+// Used only to style the 'component example' modals on the theme's Component pages. Feel free to remove
+
+.component-example{
+  border: 2px solid $gray-300;
+  border-radius: $border-radius;
+  margin-bottom: $spacer*2;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.component-example-body{
+  padding: $spacer;
+  .card{
+    margin-bottom: 0;
+  }
+  .list-group{
+    margin: 0 auto;
+  }
+  //background: $gray-300;
+}
+
+.component-example-markup{
+  position: relative;
+  .btn-clipboard{
+    position: absolute;
+    top: $spacer/4;
+    right: $spacer/4;
+    z-index: 2;
+  }
+  pre[class*='language-']{
+    margin: 0;
+    padding: $spacer;
+    border: none;
+    max-height: 200px;
+  }
+}
+
+.component-classes{
+  padding: $spacer;
+  dl{
+    margin-bottom: 0;
+  }
+  P{
+    margin-bottom: 0;
+  }
+  dd{
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}

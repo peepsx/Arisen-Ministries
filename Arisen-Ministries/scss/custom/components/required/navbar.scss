@@ -1,0 +1,23 @@
+// 
+// 
+// navbar.scss
+//
+//
+
+.nav-link{
+  &.h5{
+    margin-bottom: 0;
+  }
+}
+
+.justify-content-end{
+  .navbar-nav{
+    .nav-item{
+      &:last-child{
+        > .nav-link{
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

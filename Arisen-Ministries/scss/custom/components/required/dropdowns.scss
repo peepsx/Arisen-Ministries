@@ -1,0 +1,50 @@
+// 
+// 
+// dropdowns.scss
+//
+//
+
+.dropdown-arrow{
+  &:after{
+    background: dropdown-arrow($gray-900,180);
+    opacity: .5;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.dropdown-toggle{
+  &:after{
+    border: none !important;
+    width: 9px;
+    height: 7px;
+    @extend .dropdown-arrow;
+  }
+  &[aria-expanded="true"]{
+    &:after{
+      opacity: 1;
+    }
+  }
+}
+
+.dropdown-menu{
+  box-shadow: $dropdown-box-shadow;
+}
+
+.modal-content{
+  .dropdown-menu{
+    position:absolute !important;
+  }
+}
+
+@include media-breakpoint-up(lg){
+  .dropdown-menu-wide{
+    width: 30rem;
+  }
+}
+
+nav{
+  .dropdown{
+    z-index: $zindex-fixed;
+  }
+}

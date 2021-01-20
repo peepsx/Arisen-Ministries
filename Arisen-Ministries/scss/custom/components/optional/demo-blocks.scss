@@ -1,0 +1,48 @@
+// 
+// 
+// demo-blocks.scss
+//
+// Used to format blocks on the theme's 'Blocks' page, remove for production
+
+.block-wrapper{
+  position: relative;
+  width: 100%;
+  > button{
+    position: absolute;
+    top: $spacer/2;
+    right: $spacer/2;
+    z-index: $zindex-dropdown;
+    transition: opacity $transition-time linear;
+    opacity: 0;
+  }
+  &:hover{
+    > button{
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes scanPages{
+  0%{ top: 0; }
+  100%{ top: -350%; }
+}
+
+.demo-pages{
+  padding: 0 $spacer;
+  top: 0;
+  a{
+    display: block;
+    opacity: .1;
+    transform: scale(1);
+  }
+  a{
+    &:hover{
+      opacity: .9;
+      transform: scale(1.05);
+      @extend .shadow-lg;
+    }
+  }
+  a{
+    transition: opacity $transition-time-slow ease, transform $transition-time ease, box-shadow $transition-time ease;
+  }
+}

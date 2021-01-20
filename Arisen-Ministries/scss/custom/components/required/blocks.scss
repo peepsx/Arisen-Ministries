@@ -1,0 +1,21 @@
+// 
+// 
+// blocks.scss
+//
+//
+
+@include media-breakpoint-up(lg){
+  .text-image-2{
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-direction: column;
+      > img{
+        border-radius: $border-radius;
+      }
+      > div{
+        border-radius: $border-radius 0 $border-radius 0;
+      }
+    }
+}

@@ -1,0 +1,59 @@
+// 
+// 
+// wizard.scss
+//
+//
+
+@import "CSS:../../components/plugins/smart_wizard.min";
+
+.sw-theme-default{
+  box-shadow: none;
+  .step-content{
+    padding: 0;
+    border: none;
+    &.card{
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+.wizard{
+  .nav-link{
+    position: relative;
+  }
+  &.card{
+    border-radius: $border-radius $border-radius 0 0;
+  }
+  .tab-content:not(.sw-container){
+    opacity: 0;
+  }
+}
+
+
+.sw-theme-default > ul.step-anchor > li.active > a{
+  color: theme-color('primary') !important;
+}
+.sw-theme-default > ul.step-anchor > li.done > a{
+  color: theme-color('success') !important;
+}
+.sw-theme-default > ul.step-anchor > li > a::after{
+  bottom: 3px;
+}
+
+.sw-theme-default > ul.step-anchor > li > a::after{
+  width: 0;
+  transform: scale(1) !important;
+}
+
+.sw-theme-default > ul.step-anchor > li.done > a::after, .sw-theme-default > ul.step-anchor > li.active > a::after{
+  width: 100%;
+}
+
+.sw-theme-default > ul.step-anchor > li > a::after{
+  background: theme-color('primary');
+}
+
+.sw-theme-default > ul.step-anchor > li.done > a::after{
+  background: theme-color('success');
+}

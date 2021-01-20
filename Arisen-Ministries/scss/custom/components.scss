@@ -1,0 +1,60 @@
+// 
+// 
+// components.scss
+//
+//
+
+
+// Required Components
+//
+// These partials are essential for theme styling
+
+@import "components/required/background-images";
+@import "components/required/blocks";
+@import "components/required/buttons";
+@import "components/required/card";
+@import "components/required/dropdowns";
+@import "components/required/grid";
+@import "components/required/images";
+@import "components/required/lists";
+@import "components/required/navbar";
+@import "components/required/navs";
+@import "components/required/typography";
+@import "components/required/utilities";
+
+// Optional Components
+//
+// These partials can be included and excluded as required
+
+@import "components/optional/articles";
+@import "components/optional/avatars";
+@import "components/optional/badge";
+@import "components/optional/breadcrumb";
+@import "components/optional/dropdowns";
+@import "components/optional/fancybox";
+@import "components/optional/flickity";
+@import "components/optional/forms";
+@import "components/optional/headers";
+@import "components/optional/hover-effects";
+@import "components/optional/icons";
+@import "components/optional/list-group";
+@import "components/optional/maps";
+@import "components/optional/modals";
+@import "components/optional/prism";
+@import "components/optional/pagination";
+@import "components/optional/progress";
+@import "components/optional/sidebar";
+@import "CSS:components/plugins/socicon";
+@import "components/optional/tables";
+@import "components/optional/triangle-backgrounds";
+@import "components/optional/video";
+@import "components/optional/wizard";
+@import "components/optional/zoom";
+@import "components/optional/ie-fixes";
+
+// Theme Demonstration Components
+//
+// These partials are not required in production sites
+
+@import "components/optional/component-examples";
+@import "components/optional/demo-blocks";

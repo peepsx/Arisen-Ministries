@@ -1,0 +1,97 @@
+//
+//
+// navs.scss
+//
+//
+
+.nav-link {
+  color: transparentize($headings-color, 0.5);
+  &.active{
+    color: $headings-color;
+  }
+  &:hover {
+      color: theme-color("primary");
+      &.disabled{
+        color: $nav-link-disabled-color;
+      }
+  }
+}
+
+.nav-tabs {
+  .nav-link {
+    border: none;
+    padding: ((2/3)*$spacer) $spacer;
+
+    &.active {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: theme-color("primary");
+        height: $nav-tabs-border-width;
+        border-radius: 200rem;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav-tabs{
+  .dropdown-menu{
+    margin-top: 0;
+    border-radius: $border-radius;
+  }
+}
+
+.navbar-dark{
+  .nav-tabs{
+    .nav-link{
+      &.active{
+        background: none;
+      }
+      &.dropdown-toggle{
+        &:after{
+          background: dropdown-arrow($white,180);
+        }
+      }
+    }
+    .nav-item{
+      &:first-child{
+        .nav-link{
+          padding-left: 0;
+        }
+      }
+      &.show{
+        .nav-link{
+          background: none;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md){
+  .navbar-expand-lg{
+    .nav-tabs{
+      .nav-link{
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.nav-pills{
+  .nav-link{
+      padding: $spacer/4 $spacer/1.5;
+  }
+  &.flex-column{
+    .nav-link{
+      padding: $spacer/2 $spacer/2;
+      &.active{
+        padding: $spacer/2 $spacer/1.5;
+      }
+    }
+  }
+}

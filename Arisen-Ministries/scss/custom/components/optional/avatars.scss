@@ -1,0 +1,40 @@
+// 
+// 
+// avatars.scss
+//
+//
+
+ul.avatars{
+  display: flex;
+  padding: 0;
+  list-style: none;
+  > li{
+    &:not(:last-child){
+      margin-right: -$spacer/4;
+    }
+  }
+}
+
+.avatar{
+  flex-shrink: 0;
+  width: $spacer*1.5;
+  height: $spacer*1.5;
+  border-radius: 50%;
+  &.avatar-lg{
+    width: $spacer*2;
+    height: $spacer*2;
+  }
+  &.avatar-sm{
+    width: $spacer;
+    height: $spacer;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .avatar{
+    &.avatar-lg{
+      width: $spacer*3;
+      height: $spacer*3;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// 
+// 
+// pagination.scss
+//
+//
+
+.pagination{
+  .material-icons{
+    font-size: inherit;
+    line-height: 0;
+  }
+  .page-link{
+    height: 100%;
+    display: flex;
+    > span{
+      display: flex;
+      align-items: center;
+    }
+  }
+}

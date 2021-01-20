@@ -1,0 +1,22 @@
+// 
+// 
+// tables.scss
+//
+//
+
+.table-borderless{
+  .border{
+    border-width: 2px !important;
+  }
+}
+
+th{
+  font-weight: $font-weight-bold;
+  color: $headings-color;
+}
+
+td{
+  .material-icons:only-child{
+    display: block;
+  }
+}

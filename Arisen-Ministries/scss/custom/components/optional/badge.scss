@@ -1,0 +1,20 @@
+// 
+// 
+// badge.scss
+//
+//
+
+.badge{
+  position: relative;
+  bottom: 1px;
+  .material-icons{
+    font-size: inherit;
+    line-height: inherit;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.badge-md{
+  font-size: .875rem;
+}

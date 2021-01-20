@@ -1,0 +1,52 @@
+// 
+// 
+// hover-effects.scss
+//
+// An optional include that controls the hover animation on certain elements
+
+.card.hover-effect,img.hover-effect{
+  transition: top $transition-time ease, box-shadow $transition-time ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  top: 0;
+  position: relative;
+  &:hover{
+    top: -$spacer/4;
+    box-shadow: $box-shadow;
+  }
+  &.shadow{
+    &:hover{
+      box-shadow: $box-shadow-lg !important;
+    }
+  }
+  &.shadow-sm{
+    &:hover{
+      box-shadow: $box-shadow !important;
+    }
+  }
+}
+
+a.card.hover-effect{
+  overflow: hidden;
+  > .card-img{
+    transition: opacity $transition-time ease;
+  }
+  &:hover{
+    > .card-img{
+      opacity: .5;
+    }
+  }
+}
+
+.isotope.hover-effect{
+  .grid-item{
+    transition: opacity $transition-time ease;
+  }
+  &:hover{
+    .grid-item{
+      &:not(:hover){
+        opacity: .5;
+      }
+    }
+  }
+}
+

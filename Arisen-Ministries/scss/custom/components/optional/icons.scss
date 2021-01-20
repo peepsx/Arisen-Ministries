@@ -1,0 +1,63 @@
+// 
+// 
+// icons.scss
+//
+//
+
+.icon{
+ width: auto;
+ height: $spacer*2;
+ &.icon-lg{
+   height: $spacer*3;
+ }
+ &.icon-sm{
+   height: $spacer*1.5;
+ }
+ path{
+   fill: theme-color('primary');
+ }
+ &.text-success{
+   path{
+     fill: theme-color('success');
+   }
+ }
+ &.text-danger{
+   path{
+     fill: theme-color('danger');
+   }
+ }
+ &.text-warning{
+    path{
+      fill: theme-color('warning');
+    }
+  }
+  &.text-info{
+    path{
+      fill: theme-color('info');
+    }
+  }
+  &.text-white{
+    path{
+      fill: $white;
+    }
+  }
+  &.text-dark{
+    path{
+      fill: $headings-color;
+    }
+  }
+}
+
+.icon-rounded{
+  flex-shrink: 0;
+  width: $spacer*2;
+  height: $spacer*2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .icon{
+    height: 1.125rem;
+    transform: translate3d(0,0,0);
+  }
+}

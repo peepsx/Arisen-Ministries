@@ -1,0 +1,148 @@
+// 
+// 
+// flickity.scss
+//
+//
+
+@import "CSS:../../components/plugins/flickity";
+
+[data-flickity]{
+  transition: opacity $transition-time linear;
+  &:not(.flickity-enabled){
+    opacity: 0;
+  }
+}
+
+.flickity-page-dots{
+  .dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 10rem;
+    margin: 0 5px;
+    background: theme-color('dark');
+    opacity: .2;
+    transition: transform $transition-time linear, opacity $transition-time linear;
+    &.is-selected{
+      transform: scale(1.3);
+    }
+  }
+}
+
+.flickity-prev-next-button{
+  background: $white;
+  width: $spacer*2;
+  height: $spacer*2;
+  transition: opacity $transition-time linear;
+  &:after{
+    content: '\e314';
+    font-family: $slider-arrow-icon-font-family;
+    color: theme-color('dark');
+    font-size: 1.25rem;
+    position: relative;
+    top: 2px;
+  }
+  &:not(:hover){
+    opacity: .75;
+  }
+  &.previous{
+    left: $spacer/4;
+  }
+  &.next{
+    right: $spacer/4;
+    &:after{
+      content: '\e315';
+    }
+  }
+  .flickity-button-icon{
+    display: none;
+  }
+}
+
+@include media-breakpoint-down(lg){
+  .flickity-prev-next-button{
+    display: none;
+  }
+}
+
+[data-flickity]{
+  &:not(:hover){
+    .flickity-prev-next-button{
+      opacity: 0;
+    }
+  }
+  &.controls-inside{
+    .flickity-page-dots{
+      position: absolute;
+      bottom: $spacer;
+    }
+  }
+  &.controls-light{
+    .flickity-page-dots{
+      .dot{
+        background: $white;
+      }
+    }
+  }
+}
+
+.carousel-cell{
+  width: 100%;
+}
+
+@include media-breakpoint-up(lg){
+  .slider-cards{
+    .card{
+      position: absolute;
+      z-index: 2;
+      top: $spacer;
+      left: $spacer;
+      height: calc(100% - 3rem);
+    }
+    .flickity-page-dots{
+      bottom: $spacer*2;
+      text-align: left;
+      padding-left: $spacer*2;
+    }
+    .flickity-button.previous{
+      display: none !important;
+    }
+  }
+  [data-flickity]{
+    figcaption{
+      &.position-absolute{
+        opacity: 0;
+        transition: opacity $transition-time-fast linear;
+      }
+    }
+    &:hover{
+      figcaption.position-absolute{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md){
+  .slider-cards{
+    img.rounded{
+      border-radius: $border-radius $border-radius 0 0 !important;
+      + .card{
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+    }
+  }
+}
+
+.slider-highlight-selected{
+  .flickity-viewport{
+    overflow: visible;
+  }
+  [aria-selected]{
+    transition: opacity $transition-time linear, transform $transition-time linear;
+  }
+  [aria-selected="false"]{
+    opacity: .2;
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,25 @@
+// 
+// 
+// breadcrumb.scss
+//
+//
+
+.breadcrumb-item{
+  display: flex;
+  align-items: center;
+  + .breadcrumb-item{
+    &:before{
+      font-family: $breadcrumb-divider-font-family;
+    }
+  }
+}
+
+.breadcrumb.bg-dark{
+  .breadcrumb-item{
+    + .breadcrumb-item{
+      &:before{
+        color: transparentize($white,.5);
+      }
+    }
+  }
+}

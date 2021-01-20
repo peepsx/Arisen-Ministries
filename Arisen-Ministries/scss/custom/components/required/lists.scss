@@ -1,0 +1,54 @@
+// 
+// 
+// lists.scss
+//
+//
+
+
+.list-pipe-separator{
+  >li:not(:last-child){
+    >a{
+      &:after{
+        content: '|';
+        margin: 0 $spacer/4;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.list-social-links{
+  padding: 0;
+  list-style: none;
+  display: flex;
+  a{
+    display: block;
+    padding: 0.125rem .5rem;
+    background: $gray-300;
+    color: $body-color;
+    border-radius: $border-radius;
+    transition: background-color $transition-time-fast linear, color $transition-time-fast linear;
+    &:hover{
+      background: $gray-400;
+      color: $headings-color;
+    }
+  }
+  i{
+    font-size: .75rem;
+  }
+  > li{
+    margin-right: $spacer/4;
+    &:last-child{
+      margin: 0 $spacer/8;
+    }
+    &.text-white{
+      a{
+        color: $white;
+        background: rgba(255,255,255,.15);
+        &:hover{
+          background: rgba(255,255,255,.4);
+        }
+      }
+    }
+  }
+}

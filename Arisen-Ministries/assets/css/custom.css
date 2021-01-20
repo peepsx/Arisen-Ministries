@@ -1,0 +1,417 @@
+/* old css start */
+.increase-width {
+    width: 116%;
+  }
+  .ppl-bar {
+    text-align: center;
+    /* background-color: rgb(128, 0, 128); */
+    margin: auto;
+    padding: 10px;
+  }
+  .ppl-bar p {
+    margin: 0;
+    color: #fff;
+  }
+  .margin-20{
+      margin: 20px 0;
+  }
+  .label{
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+  }
+  .center-text{
+      text-align: center;
+  }
+  .join-logo {
+    text-align: center;
+    margin: 20px 0;
+  }
+/* blocks */
+
+.logo-rounded {
+    height: 125px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 125px;
+    margin: auto;
+  }
+  .logo-rounded img {
+    width: auto;
+    height: 50px;
+  }
+  .hrader-logo-rounded {
+    width: 125px;
+    height: 125px;
+  }
+  .hrader-logo-rounded img {
+    width: auto;
+    height: 100px;
+  }
+  .down-arrow {
+      color: rgb(71, 116, 182);
+  }
+  .description {
+      color: rgb(83, 86, 86);
+  }
+  .bg-light {
+      background-color: rgb(243, 236, 222)  !important
+  }
+  .bg-opaque {
+      background-color: #000;
+  }
+  .replace {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      color: rgb(83, 86, 86);
+  }
+  .btn-white {
+      background-color: rgb(243, 236, 222);
+      color: rgb(71, 116, 182);
+      margin: 10px 0;
+  }
+  .btn-support {
+      background-color: rgb(71, 116, 182);
+      color: rgb(243, 236, 222);
+      margin: 10px 0;
+  }
+  .btn-support:hover {
+      color: rgb(243, 236, 222);
+  }
+  .btn-black {
+    background-color: rgb(0,0,0);
+    color: rgb(243,236,222) !important;
+  }
+  .btn-black:hover {
+      color: rgb(83, 86, 86);
+  }
+  
+  .arrow {
+      margin: 20px;
+      font-size: 30px;
+  }
+  .bounce {
+      -moz-animation: bounce 2s infinite;
+      -webkit-animation: bounce 2s infinite;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  
+    /* ---------stripe ===paypal=======styles */
+  
+  /* Modal Content/Box */
+  .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .modal-dialog {
+      max-width: 950px;
+    }
+    
+    
+    /* -----------------------new stripe payment style---------- */
+    
+    
+    .payment-box {
+      text-align: center;
+    }
+    label {
+      position: relative;
+      color: #6A7C94;
+      font-weight: 400;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+    }
+    
+    label > span {
+      /* width: 140px; */
+    }
+    .donet-mod .modal-header {
+      padding: 25px 0;
+  }
+    .donet-mod label > span {
+      width: 80px;
+      line-height: 48px;
+    }
+    
+    .field {
+      background: white;
+      box-sizing: border-box;
+      font-weight: 400;
+      border: 1px solid #CFD7DF;
+      border-radius: 24px;
+      color: #32315E;
+      outline: none;
+      flex: 1;
+      height: 48px;
+      line-height: 48px;
+      padding: 0 20px;
+      cursor: text;
+    }
+    
+    .field::-webkit-input-placeholder { color: #CFD7DF; }
+    .field::-moz-placeholder { color: #CFD7DF; }
+    
+    .field:focus,
+    .field.StripeElement--focus {
+      border-color: #F99A52;
+    }
+    
+    button {
+      color: white;
+    }
+   
+    .outcome {
+      float: left;
+      width: 100%;
+      padding-top: 8px;
+      min-height: 20px;
+      text-align: center;
+    }
+    
+    .success, .error {
+      display: none;
+      font-size: 13px;
+    }
+    
+    .success.visible, .error.visible {
+      display: inline;
+    }
+    
+    .error {
+      color: #E4584C;
+    }
+    
+    .success {
+      color: #F8B563;
+    }
+    
+    .success .token {
+      font-weight: 500;
+      font-size: 13px;
+    }
+    
+    
+      /* ----------------loader design------------- */
+      
+      #loading {
+        background: url('../img/logo-we-need-for/loader.gif') no-repeat center center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9999999;
+    }
+    .modal-header .close {
+        margin: 0;
+        background-color: #0070ba;
+        background-image: none;
+        opacity: 1;
+        text-shadow: none;
+        color: #fff;
+        padding: 10px;
+    }
+    .swal-button{
+        line-height: 30px;
+    }
+    
+    /* email template */
+    .emai-logo img {
+        max-width: 150px;
+    }
+    .email-content h1 {
+        text-align: center;
+    }
+    .email-content {
+        padding: 50px;
+    }
+    .bold-para {
+        font-weight: 600 !important;
+    }
+    div#paypal-button-container {
+      max-width: 160px;
+      display: inline-block;
+      position: relative;
+      top: 16px;
+  }
+  .btn-blue {
+      background: #0070ba;
+      border-radius: 43px;
+      height: 40px;
+  }
+  .modal-title {
+    margin: auto;
+  }
+  .pay-btn {
+    text-align: center;
+  }
+  .pay-btn button {
+    min-width: 100px;
+    margin: 10px;
+  }
+    
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 1111;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    /* height: 60%; */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    /* background-color: #5cb85c; */
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* New changes */
+  .join-page-modal .modal-header {
+    padding: 25px 0;
+  }
+  .join-page-modal .modal-content {
+    width: 60%;
+  }
+  .join-page-modal .modal-body label > span {
+    line-height: 42px;
+    width: 50px;
+  }
+  
+  /* ----------progress loader--------- */
+  #myProgress {
+    width: 100%;
+    background-color: #ced4da;
+    border-radius: 200rem;
+  
+  }
+  
+  #myBar {
+    border-radius: 200rem;
+    width: 0%;
+    height: 30px;
+    background-color: rgb(0,154,254);
+    text-align: center;
+    line-height: 30px;
+    color: rgb(255, 255, 255)
+  }
+
+/* old css end */
+
+.logo-area img {
+    max-width: 60px;
+    padding-right: 3px;
+    float: left;
+}
+.logo-area h1 {
+    margin: 0;
+    padding-top: 11px;
+}
+.icon-rounded {
+    border: 1px solid #000;
+}
+.icon-rounded span {
+    color: #000;
+}
+
+.footer-logo h2 {
+    color: #fff;
+}
+
+.card-img-top {
+  max-height: 216px;
+}

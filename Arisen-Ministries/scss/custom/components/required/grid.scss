@@ -1,0 +1,36 @@
+// 
+// 
+// grid.scss
+//
+//
+
+.row[class*='flex-'][class*='-column']{
+  > [class*='col'][class*='my-']{
+    &:first-child{
+      margin-top: 0 !important;
+    }
+    &:last-child{
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+@media all and (max-width: 767px){
+  .row:not(.no-gutters){
+    >[class*='col-6']{
+      &:nth-child(odd){
+        padding-right: $spacer/4;
+      }
+      &:nth-child(even){
+        padding-left: $spacer/4;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(sm){
+  .container-fluid{
+    padding-left: $spacer;
+    padding-right: $spacer;
+  }
+}

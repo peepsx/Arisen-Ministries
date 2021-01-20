@@ -1,0 +1,90 @@
+// 
+// 
+// card.scss
+//
+//
+
+.card{
+  margin-bottom: $spacer/2;
+  &.disabled{
+    opacity: .5;
+    pointer-events: none;
+  }
+  &.bg-dark{
+    &.hover-effect{
+      &:hover{
+        background: $headings-color !important;
+      }
+    }
+  }
+  &.justify-content-end{
+    .card-img-overlay{
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+  }
+  >.badge{
+    &.position-absolute{
+      top: 0;
+      right: 0;
+      bottom: auto;
+      border-radius: 0 $border-radius 0 $border-radius;
+      padding: .5rem;
+    }
+  }
+}
+
+.card-body{
+  padding: $card-spacer-y $card-spacer-x;
+}
+
+.card-img{
+  min-height: 1px;
+}
+
+@include media-breakpoint-up(md) {
+  .card{
+    margin-bottom: $spacer;
+  }  
+}
+
+@include media-breakpoint-up(md){
+  .card{
+    &.flex-md-row{
+      .card-img{
+        border-radius: $border-radius 0 0 $border-radius;
+        object-fit: cover;
+      }
+      &.flex-md-row-reverse{
+        .card-img{
+          border-radius: 0 $border-radius $border-radius 0;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md){
+  .card.flex-column{
+    .card-img{
+      border-radius: $border-radius $border-radius 0 0;
+    }
+  }
+}
+
+.card-footer{
+  background: $card-bg;
+  border-top: 1px solid $body-bg;
+  &.bg-dark, &.bg-primary{
+    border-color: transparentize($white, .9);
+  }
+}
+
+.card-img-overlay{
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  &.bg-dark{
+    background: rgba(0,0,0,.5) !important;
+  }
+}

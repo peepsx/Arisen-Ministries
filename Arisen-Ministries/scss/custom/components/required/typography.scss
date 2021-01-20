@@ -1,0 +1,115 @@
+// 
+// 
+// typography.scss
+//
+//
+
+html{
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@include media-breakpoint-down(sm){
+  html{
+    font-size: .875rem;
+  }
+  .display-4{
+    font-size: $h1-font-size;
+  }
+}
+
+h1,.h1, .display-3{
+  line-height: 1;
+}
+
+@include media-breakpoint-down(lg){
+  .display-3{
+    font-size: $display4-size;
+  }
+}
+
+@include media-breakpoint-down(md){
+  .display-2{
+    font-size: $display4-size;
+  }
+}
+
+.font-alt-1{
+  font-family: 'Permanent Marker';
+}
+
+a{
+  font-weight: 600;
+  &.lead{
+    font-weight: 600;
+  }
+  p, span, ul, ol{
+    font-weight: $font-weight-normal;
+    color: $body-color;
+  }
+  &:focus{
+    outline: none;
+  }
+  &.bg-dark{
+    &:hover{
+      background: theme-color('dark') !important;
+    }
+  }
+}
+
+.text-small{
+  font-size: $font-size-sm;
+}
+
+.justify-content-between{
+  > a{
+    + i{
+      transition: transform $transition-time-fast linear;
+    }
+    &:hover{
+      + i{
+        transform: translateX($spacer/4);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md){
+  .display-4{
+    line-height: 3.75rem;
+  }
+}
+
+blockquote{
+  font-style: italic;
+  .h4{
+    line-height: 2.25rem;
+  }
+}
+
+article{
+  blockquote{
+    margin: $spacer*2 0;
+  }
+  h3,h4,h5{
+    margin: $spacer*1.5 0;
+  }
+  figure{
+    margin: $spacer*1.5 0;
+  }
+}
+
+figure{
+  figcaption{
+    margin-top: $spacer/4;
+    font-size: .875rem;
+    font-style: italic;
+    &.position-absolute{
+      bottom: $spacer/2;
+      left: $spacer/1.5;
+      border-radius: $border-radius;
+      padding: 0.125rem .5rem;
+      background: $white;
+    }
+  }
+}

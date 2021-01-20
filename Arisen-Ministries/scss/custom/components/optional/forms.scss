@@ -1,0 +1,133 @@
+//
+//
+// forms.scss
+//
+//
+
+.form-group {
+  > label {
+    color: $headings-color;
+  }
+}
+
+.custom-select {
+  background-size: auto auto !important;
+  font-weight: 600;
+  &.form-control-lg{
+    height: $spacer*2;
+  }
+}
+
+.custom-control {
+  .custom-control-label {
+    user-select: none;
+    &:before {
+      pointer-events: all;
+      transition: background-color $transition-time-fast linear;
+    }
+  }
+}
+
+.custom-radio {
+  .custom-control-label {
+    &:after {
+      background-size: 0%;
+      transition: background-size $transition-time-fast ease;
+    }
+  }
+  .custom-control-input{
+    &:checked{
+      ~ .custom-control-label{
+        &:after{
+          background-size: 60%;
+        }
+      }
+    }
+  }
+}
+
+.custom-checkbox{
+  .custom-control-input{
+    + label.card{
+      border: 2px solid rgba(0,0,0,0);
+      transition: border-color $transition-time-fast linear;
+      cursor: pointer;
+      user-select: none;
+    }
+    &:checked{
+      + label.card{
+        border-color: theme-color('primary');
+      }
+    }
+  }
+}
+
+.custom-checkbox-switch {
+  padding-left: 2.875rem;
+
+  .custom-control-label {
+    &:before {
+      left: -2.875rem;
+      border-radius: 200rem;
+      width: 2.5rem;
+    }
+    &:after {
+      top: 0.375rem;
+      left: -2.625rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: $white;
+      transition: left $transition-time-fast linear;
+    }
+  }
+  .custom-control-input {
+    &:checked {
+      ~ .custom-control-label {
+        &:after {
+          background-image: none;
+          left: -1.375rem;
+        }
+      }
+    }
+  }
+}
+
+.input-group{
+  .form-control{
+    height: auto;
+  }
+  .input-group-prepend{
+    + .form-control{
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+  &:focus-within{
+    .input-group-prepend{
+      .input-group-text
+      {
+        border-color: $input-focus-border-color;
+      }
+    }
+  }
+  &.input-group-round{
+    .input-group-prepend{
+      .input-group-text{
+        border-radius: 10rem 0 0 10rem;
+      }
+    }
+    .form-control{
+      border-radius: 0 10rem 10rem 0;
+    }
+  }
+}
+
+.input-group-text{
+  padding-left: $spacer/2;
+  padding-right: $spacer/2;
+}
+
+.form-control-round{
+  border-radius: 200rem;
+}

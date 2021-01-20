@@ -1,0 +1,115 @@
+// 
+// 
+// video.scss
+//
+//
+
+
+// Bootstrap overrides
+//
+// General overrides for default embed styles
+
+.embed-responsive{
+  background: $black;
+}
+
+// Video covers
+//
+// Element that allows embeddable media inside while keeping theme consistens styling
+
+
+@keyframes fadeOut{
+  0%{ opacity: 1; }
+  100%{ opacity: 0; transform: scale(1.5); }
+}
+
+.video-cover{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .bg-image{
+    z-index: 1;
+    transition: opacity $transition-time ease;
+  }
+  &.rounded{
+    .bg-image{
+      border-radius: $border-radius;
+    }
+  }
+  .video-play-icon{
+    position: absolute;
+    z-index: 2;
+    margin-bottom: 0 !important;
+  }
+  iframe{
+    background: $black;
+    transition: opacity $transition-time ease;
+    opacity: 0;
+  }
+  &.video-cover-playing{
+    .bg-image{
+      opacity: 0;
+      pointer-events: none;
+    }
+    .video-play-icon{
+      animation: fadeOut $transition-time ease forwards;
+      pointer-events: none;
+    }
+    iframe{
+      opacity: 1;
+    }
+  }
+  &:not(:last-child){
+    margin-bottom: $spacer;
+  }
+}
+
+.video-play-icon{
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+  width: $spacer*2.5;
+  height: $spacer*2.5;
+  line-height: $spacer*2.5;
+  border-radius: 50%;
+  background: $white;
+  text-align: center;
+  font-size: $h2-font-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:not(:last-child){
+    margin-bottom: $spacer;
+  }
+  transition: transform $transition-time ease;
+  &:hover{
+    transform: scale(1.1);
+  }
+  &:after{
+    content: '';
+    position: relative;
+    display: block;
+    width: 9px;
+    height: 7px;
+    transform: scale(2);
+    background: dropdown-arrow($gray-900,90);
+  }
+  &.video-play-icon-lg{
+    width: $spacer*3.5;
+    height: $spacer*3.5;
+    &:after{
+      transform: scale(2.5);
+    }
+  }
+}
+
+.video-cover-touch{
+  .bg-image, .video-play-icon{
+    display: none;
+  }
+  iframe{
+    opacity: 1;
+  }
+}

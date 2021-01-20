@@ -1,0 +1,16 @@
+// 
+// 
+// progress.scss
+//
+//
+
+.progress{
+  .progress-bar{
+    border-radius: 200rem;
+    min-height: .5rem;
+    &:not(:empty){
+      padding-left: $spacer/2;
+      padding-right: $spacer/2;
+    }
+  }
+}

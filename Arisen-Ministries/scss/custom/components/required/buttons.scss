@@ -1,0 +1,48 @@
+// 
+// 
+// buttons.scss
+//
+//
+
+.btn-secondary,.btn-primary,.btn-success,.btn-danger, .btn-dark{
+  &.dropdown-toggle{
+    &:after{
+      background: dropdown-arrow($white,180);
+    }
+  }
+}
+
+.btn-light{
+  background: $white;
+  border-color: $white;
+  color: $link-color;
+  &:hover,&:active,&:focus{
+    background: darken($white,5%);
+    border-color: darken($white,5%);
+    color: darken($link-color, 15%) !important;
+  }
+}
+
+.btn{
+  i{
+    font-size: inherit;
+    line-height: inherit;
+    display: inline;
+    vertical-align: middle;
+    &.material-icons{
+      &:only-child{
+        transform: scale(1.5);
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.btn-image{
+  height: 1.5rem;
+  margin-right: .25rem;
+  + span{
+    position: relative;
+    top: 1px;
+  }
+}

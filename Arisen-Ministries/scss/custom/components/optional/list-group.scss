@@ -1,0 +1,58 @@
+// 
+// 
+// list-group.scss
+//
+//
+
+.list-group-item{
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  &:first-child{
+    border-top: none;
+  }
+  &.active{
+    span{
+      color: $white;
+    }
+    .icon{
+      path{
+        fill: $white;
+      }
+    }
+  }
+  &.disabled{
+    opacity: .5;
+    pointer-events: none;
+  }
+  &.bg-dark{
+    border-color: transparentize($white,.9);
+  }
+  &:hover, &:focus{
+    z-index: initial;
+  }
+}
+
+a.list-group-item{
+  > i{
+    transition: transform $transition-time ease !important;
+  }
+  &:hover{
+    > i{
+      transform: translateX($spacer/4);
+    }
+  }
+}
+
+.list-group-item{
+  a[data-toggle="collapse"]{
+    + i.material-icons{
+      transition: transform $transition-time-fast ease;
+    }
+    &[aria-expanded="true"]{
+      + i.material-icons{
+        transform: rotate(90deg) translateX(0);
+      }
+    }
+  }
+}
