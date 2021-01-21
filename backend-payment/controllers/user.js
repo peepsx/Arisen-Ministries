@@ -25,7 +25,6 @@ class Users {
 
     sendmail(req, res) {
         const { email } = req.body
-        console.log('=======sendmail', req.body)
         var mailchimpInstance = process.env.MAILCHIMPINSTANCE,
             listUniqueId = process.env.MAILCHIMPLISTUNIQUEID,
             mailchimpApiKey = process.env.MAILCHIMPAPIKEY;
@@ -38,7 +37,6 @@ class Users {
                 'status': 'subscribed',
             })
             .end(function (err, response) {
-                console.log('responsemail========>', response.status, "=======", response.body)
                 if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
                     return res.json({ status: true, message: 'Mail subscibed' });
                 } else {
