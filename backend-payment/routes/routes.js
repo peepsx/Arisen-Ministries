@@ -11,7 +11,8 @@ router.post('/paypalpayment',validation.validate('paypalPayment'),controller.pay
 // router.post('/onetimepayment',validation.validate('cardonetimepayment'),controller.cardonetimepayment)
 router.post('/paypalonetimepayment',controller.paypalonetimepayment)
 // router.get('/amount', controller.totalamount)
-// router.post('/sendemail',controller.sendmail)
+router.post('/sendemail',controller.sendmail)
+
 
 
 module.exports = router;

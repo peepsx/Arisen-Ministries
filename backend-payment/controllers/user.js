@@ -6,6 +6,7 @@ const Paypalpayment = require('../modals/paypalpayment')
 const Cardonetimepayment = require('../modals/onetimepayment')
 const Paypalonetimepayment = require('../modals/paypalonetimepayment')
 const { validationResult } = require('express-validator')
+var request = require('superagent');
 const ejs = require("ejs");
 
 
@@ -21,6 +22,31 @@ sendgrid.setApiKey(process.env.API_KEY_ID);
 
 
 class Users {
+
+    sendmail(req, res) {
+        const { email } = req.body
+        console.log('=======sendmail', req.body)
+        var mailchimpInstance = process.env.MAILCHIMPINSTANCE,
+            listUniqueId = process.env.MAILCHIMPLISTUNIQUEID,
+            mailchimpApiKey = process.env.MAILCHIMPAPIKEY;
+        request
+            .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
+            .set('Content-Type', 'application/json;charset=utf-8')
+            .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
+            .send({
+                'email_address': email,
+                'status': 'subscribed',
+            })
+            .end(function (err, response) {
+                console.log('responsemail========>', response.status, "=======", response.body)
+                if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
+                    return res.json({ status: true, message: 'Mail subscibed' });
+                } else {
+                    return res.json({ status: false, message: 'Mail not subscibed' });
+                }
+            });
+
+    }
 
     saveuser(req, res) {
         const errorss = validationResult(req);
@@ -166,7 +192,7 @@ class Users {
                         })
                         paypalOneTimePaymentObj.save().then((docsres) => {
                             if (docsres) {
-                                console.log('docsres======>',docsres)
+                                console.log('docsres======>', docsres)
 
                                 let object = {};
                                 object.email = email;

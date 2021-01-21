@@ -21,6 +21,7 @@
     "nodemailer": "^6.4.10",
     "nodemon": "^2.0.4",
     "promise": "^8.1.0",
-    "stripe": "^8.69.0"
+    "stripe": "^8.69.0",
+    "superagent": "^6.1.0"
   }
 }
