@@ -37,10 +37,12 @@ class Users {
                 'status': 'subscribed',
             })
             .end(function (err, response) {
-                if (response.status < 300 || (response.status === 400 )) {
-                    return res.json({ status: true, message: 'Mail subscibed' ,data:response.body});
+                console.log('=========>res',response.body)
+                if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
+                    
+                    return res.json({ status: true, message: 'Mail subscibed' , data:response.body });
                 } else {
-                    return res.json({ status: false, message: 'Mail not subscibed' });
+                    return res.json({ status: false, message: 'Mail not subscibed' ,  data:response.body });
                 }
             });
 
