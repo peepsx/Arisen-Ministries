@@ -32,8 +32,56 @@
       gtag('config', 'G-PB2B20HRJV');
     </script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+
 
 </head>
+
+<div id="snackbar">Transaction submitted, please wait...</div>
+
 
 <body onload="showModal()">
     <div id="loading"></div>
@@ -69,18 +117,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <input name="name" type="text" class="form-control" id="addressone"
-                                    placeholder="Address1*">
+                                    placeholder="Your Full Address*">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <input name="name" type="text" class="form-control" id="addresstwo"
                                     placeholder="Address2">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-sm-3">
@@ -244,7 +292,7 @@
 
             },
             onApprove: function (data, actions) {
-                swal("Your payment is Successful.", `Your SubscriptionId is: ${data.subscriptionID}`, "success");
+                swal("Please click Join I AM button below, Your payment is Successful.", `Your SubscriptionId is: ${data.subscriptionID}`, "success");
 
                 let object = {
                     "orderID": data.orderID,
@@ -254,6 +302,7 @@
                 }
 
                 axios.post('https://api.arisen.church/users/paypalpayment', object).then((result) => {
+
                     localStorage.setItem("paypalsubId", data.subscriptionID)
                     localStorage.setItem("paypalstatus", "active")
                     localStorage.setItem('paymentType', "paypal")
@@ -294,7 +343,7 @@
             let fname = document.getElementById('fname').value
             let lname = document.getElementById('lname').value
             let addressone = document.getElementById('addressone').value
-            let addresstwo = document.getElementById('addresstwo').value
+            //let addresstwo = document.getElementById('addresstwo').value
             let city = document.getElementById('city').value
             let state = document.getElementById('state').value
             let zipcode = document.getElementById('zipcode').value
@@ -316,9 +365,6 @@
             } else if (addressone == "" || addressone == null) {
                 swal({ title: "Enter your first address!", icon: "warning" });
                 return
-            } else if (addresstwo == "" || addresstwo == null) {
-                swal({ title: "Enter your second address!", icon: "warning" });
-                return
             } else if (city == "" || city == null) {
                 swal({ title: "Enter city name!", icon: "warning" });
                 return
@@ -335,14 +381,6 @@
                 swal({ title: "Enter your zipcoe!", icon: "warning" });
                 return
             }
-            // else if (country == "" || country == null) {
-            //     swal({ title: "Enter your country name!", icon: "warning" });
-            //     return
-            // }
-            //  else if (!isNaN(country)) {
-            //     swal({ title: "Enter valid country name!", icon: "warning" });
-            //     return
-            // } 
             else if (phoneno == "" || phoneno == null) {
                 swal({ title: "Enter your phone number!", icon: "warning" });
                 return
@@ -356,16 +394,18 @@
                     swal({ title: "Please Subscribe through paypal.", icon: "warning" });
                 } else {
 
+
+                    var x = document.getElementById("snackbar");
+                      x.className = "show";
+                      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
                     let subsstatus = localStorage.getItem("paypalstatus")
                     let objdata = {
                         "fName": fname,
                         "lName": lname,
                         "addressOne": addressone,
-                        "addressTwo": addresstwo,
                         "city": city,
                         "state": state,
                         "zipcode": zipcode,
-                        // "country": country,
                         "phoneNo": phoneno,
                         "email": email,
                         "subscriptionId": subsid,
@@ -373,10 +413,15 @@
                     }
                     axios.post('https://api.arisen.church/users/saveuser', objdata).then((response) => {
                         if (response) {
-                            console.log(response.data)
-                            // swal({ title: "You are peeps member now.", icon: "success" });
-                            localStorage.clear()
-                            window.location.replace('welcome.html')
+                            if(response.data.status){
+                             swal({ title: "You are now an Arisen church member. Please check your Email", icon: "success" }).then(function() {
+                                localStorage.clear()
+                                 location.reload()
+                                });
+                            }
+                            else {
+                            swal({ title: response.data.message, icon: "warning" });
+                        }
 
                         } else {
                             swal({ title: "Something went wrong,Please try again!", icon: "warning" });

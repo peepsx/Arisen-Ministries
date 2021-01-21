@@ -73,12 +73,6 @@ class Validation {
                         .isString()
                         .withMessage('Enter correct first address')
                         .trim(),
-                    check('addressTwo')
-                        .notEmpty()
-                        .withMessage('Enter your second address')
-                        .isString()
-                        .withMessage('Enter correct second address')
-                        .trim(),
                     check('city')
                         .notEmpty()
                         .withMessage('Enter your city name')
@@ -97,12 +91,6 @@ class Validation {
                         .isNumeric()
                         .withMessage('Enter correct zipcode')
                         .trim(),
-                    // check('country')
-                    //     .notEmpty()
-                    //     .withMessage('Enter your country name')
-                    //     .isString()
-                    //     .withMessage('Enter correct country name')
-                    //     .trim(),
                     check('phoneNo')
                         .notEmpty()
                         .withMessage('Enter your phone number')
@@ -114,12 +102,6 @@ class Validation {
                         .withMessage('Enter your email')
                         .isEmail()
                         .withMessage('Enter correct email')
-                        .trim(),
-                    check('paymenttype')
-                        .notEmpty()
-                        .withMessage('Enter your paymenttype,Either is by Stripe or Paypal')
-                        .isString()
-                        .withMessage('Enter correct paymenttype')
                         .trim(),
                     check('subscriptionId')
                         .notEmpty()

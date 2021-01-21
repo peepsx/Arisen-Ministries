@@ -21,40 +21,6 @@ sendgrid.setApiKey(process.env.API_KEY_ID);
 
 
 class Users {
-    // userpayment(req, res) {
-    //     const { name, token, amount } = req.body;
-    //     console.log('req.body stripe subscription', req.body)
-    //     service.createSubcription(name, token).then(resultData => {
-    //         if (resultData) {
-    //             Payment.find().then((response) => {
-    //                 let paymentObject = new Payment({
-    //                     name: name,
-    //                     token: token,
-    //                     subscriptionId: resultData.id,
-    //                     amount: 5,
-    //                     created: resultData.created
-    //                 })
-    //                 paymentObject.save().then((respData) => {
-    //                     res.json({ status: true, message: "Payment successful.", data: resultData })
-
-    //                 }).catch((error) => {
-    //                     console.log(error)
-    //                 })
-
-    //             }).catch((error2) => {
-    //                 console.log(error2)
-    //             })
-    //         }
-    //     }).catch((error1) => {
-    //         if (error1.Error) {
-    //             res.status(501).json({ status: false, message: error1.Error })
-    //         } else if (error1.raw.message) {
-    //             res.status(501).json({ status: false, message: error1.raw.message })
-    //         } else {
-    //             res.json({ "status": false, "message": "Internal server error.", "data": error })
-    //         }
-    //     })
-    // }
 
     saveuser(req, res) {
         const errorss = validationResult(req);
@@ -66,7 +32,7 @@ class Users {
             //     }).join(',')
         }
         else {
-            const { fName, lName, addressOne, addressTwo, city, state, zipcode, phoneNo, email, subscriptionId, subscriptionStatus } = req.body
+            const { fName, lName, addressOne, city, state, zipcode, phoneNo, email, subscriptionId, subscriptionStatus } = req.body
             Paypalpayment.findOne({ subscriptionID: subscriptionId }).then((response) => {
 
                 let request = new checkoutNodeJssdk.orders.OrdersGetRequest(response.orderID);
@@ -76,18 +42,16 @@ class Users {
                     if (respo.result.status == 'APPROVED') {
                         Userpayment.findOne({ email: email }).then((resp) => {
                             if (resp) {
-                                return res.status(201).json({ status: false, message: "User already subscribed" })
+                                return res.status(201).json({ status: false, message: "User already subscribed with current EmailID" })
                             } else {
                                 console.log('inside findone elsecase', req.body)
                                 let userObject = new Userpayment({
                                     fName: fName,
                                     lName: lName,
                                     addressOne: addressOne,
-                                    addressTwo: addressTwo,
                                     city: city,
                                     state: state,
                                     zipcode: zipcode,
-                                    // country: country,
                                     phoneNo: phoneNo,
                                     email: email,
                                     subscriptionId: subscriptionId,
@@ -98,17 +62,18 @@ class Users {
                                 object.subject = "Welcome To I AM Freedom!",
                                     object.fName = fName
                                 service.sendmailjoin(object).then((result) => {
-                                    console.log("response from paypal", result)
+                                    console.log("response from sendgrid", result)
                                     if (result) {
                                         userObject.save().then(doc => {
-                                            res.json({ status: true, message: "Congratulations, You are peeps member now. Kindly Please check your Email" })
+                                            res.json({ status: true, message: "Congratulations, You are now an Arisen church member. Kindly Please check your Email" })
                                         }).catch((error) => {
                                             console.log(error)
-                                            res.json({ "status": false, "message": "Internal server error.", "data": error })
+                                            res.json({ "status": false, message: "Internal server error.", data: error })
                                         })
                                     }
                                 }).catch((e) => {
                                     console.log("response from exception", e)
+                                    res.json({ "status": false, message: "Email Not Sent Try later.", data: error })
                                 })
                             }
                         }).catch((err) => {
@@ -116,13 +81,13 @@ class Users {
                         })
                     }
                     else {
-                        res.json({ "status": false, "message": "PayPal Payment not Approved" })
+                        res.json({ status: false, message: "PayPal Payment not Approved" })
                     }
 
                 }).catch((exc) => {
                     console.log("exc", exc);
 
-                    res.json({ "status": false, "message": "PayPal Payment not valid" })
+                    res.json({ status: false, message: "PayPal Payment not valid" })
                 })
 
             }).catch((exception) => {
@@ -176,8 +141,8 @@ class Users {
 
 
     paypalonetimepayment(req, res) {
-        const { amount, transectionId, paymentStatus, fname, lname, email, addressOne, addressTwo, city, state, zipcode, country } = req.body
-        console.log('=========onetime', amount, transectionId, paymentStatus, fname, lname, email, addressOne, addressTwo, city, state, zipcode, country)
+        const { amount, transectionId, paymentStatus, fname, lname, email, addressOne, city, state, zipcode, country } = req.body
+        console.log('=========onetime', amount, transectionId, paymentStatus, fname, lname, email, addressOne, city, state, zipcode, country)
         let request = new checkoutNodeJssdk.orders.OrdersGetRequest(transectionId);
 
         payPalClient.client().execute(request).then((respo) => {
@@ -194,7 +159,6 @@ class Users {
                             lname: lname,
                             email: email,
                             addressOne: addressOne,
-                            addressTwo: addressTwo,
                             city: city,
                             state: state,
                             zipcode: zipcode,
@@ -209,11 +173,13 @@ class Users {
                                 object.subject = "Arisen Church | Thank You For Your Donation!",
                                     object.fName = fname
                                 service.sendmail(object).then((result) => {
-                                    console.log("response from paypal", result)
-                                    res.json({ status: true, message: "Data saved" })
+                                    console.log("response from sendgridd", result)
+                                    res.json({ status: true, message: "Thank You for the Donation, Please Check your EmailID" })
 
                                 }).catch((e) => {
                                     console.log("response from exception", e)
+                                    res.json({ status: false, message: "Email Not sent, Please try later" })
+
                                 })
                             } else {
                                 res.json({ status: false, message: "Data not saved" })
@@ -226,6 +192,9 @@ class Users {
                 }).catch((errorses) => {
                     console.log('error', errorses)
                 })
+            }
+            else {
+                res.json({ status: false, message: "PayPal Payment not Approved" })
             }
         }).catch((e) => {
             console.log("exception", e)
