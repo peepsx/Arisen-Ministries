@@ -29,13 +29,56 @@
 
     gtag('config', 'G-PB2B20HRJV');
   </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
 
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
 
 </head>
 
 <body>
   
-
+  <div id="snackbar">Transaction submitted, please wait...</div>
   <!------------------------- CUSTOM BLOCK ------------------------>
   <section class="height-100 bg-white p-3">
     <!-- <img src="#" alt="Image" class="bg-image opacity-10"> -->
@@ -73,6 +116,7 @@
             </ul>
             <div class="tab-content">
               <div id="first">
+
                 <div class="card-body py-4">
                   <h3>Choose a donation amount</h3>
                   <p>Choose your donation amount below:</p>
@@ -157,14 +201,9 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="addressone" placeholder="Address1*">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="addresstwo" placeholder="Address2*">
+                        <input name="name" type="text" class="form-control" id="addressone" placeholder="Your Full Address*">
                       </div>
                     </div>
                   </div>
@@ -235,7 +274,7 @@
               </div> -->
               <div id="fourth">
                 <div class="card-body py-4">
-                  <h3>Thank you so much for your donation of $<spam id="amountdonated"></spam> and helping further this
+                  <h3>Kindly Check your Email, Thank you so much for your donation of $<spam id="amountdonated"></spam> and helping further this
                     decentralized dream of ours.<br/>Your TransectionId is <spam id="TransectionId"></spam>
                   </h3>
                   <!-- <button class="btn btn-success" type="submit">Submit</button> -->
@@ -344,7 +383,6 @@
       lname = document.getElementById('lname').value
       email = document.getElementById('email').value
       addressone = document.getElementById('addressone').value
-      addresstwo = document.getElementById('addresstwo').value
       city = document.getElementById('city').value
       state = document.getElementById('state').value
       zipcode = document.getElementById('zipcode').value
@@ -365,10 +403,7 @@
         swal({ title: "Enter your Email!", icon: "warning" });
         return
       } else if (addressone == "" || addressone == null) {
-        swal({ title: "Enter your first address!", icon: "warning" });
-        return
-      } else if (addresstwo == "" || addresstwo == null) {
-        swal({ title: "Enter your second address!", icon: "warning" });
+        swal({ title: "Enter your Full address!", icon: "warning" });
         return
       } else if (city == "" || city == null) {
         swal({ title: "Enter city name!", icon: "warning" });
@@ -465,7 +500,11 @@
       onApprove: function (data, actions) {
         return actions.order.capture().then(function (details) {
           if (details.status == "COMPLETED") {
-            window.location = "#fourth"
+            
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+
             document.getElementById("amountdonated").innerHTML = amount;
             document.getElementById("TransectionId").innerHTML = details.id
 
@@ -477,16 +516,15 @@
               "lname": lname,
               "email": email,
               "addressOne": addressone,
-              "addressTwo": addresstwo,
               "city": city,
               "state": state,
               "zipcode": zipcode,
               "country": country
 
             }
-            axios.post('https://api.arisen.church/users/paypalonetimepayment', object).then((result) => {
+            axios.post('https://api.arisen.network/users/paypalonetimepayment', object).then((result) => {
 
-              console.log("resss",result)
+              window.location = "#fourth"
 
             }).catch((error) => {
               console.log(error)

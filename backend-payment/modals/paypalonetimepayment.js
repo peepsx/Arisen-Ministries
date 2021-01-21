@@ -36,11 +36,6 @@ const paypalOneTimePaymentSchema = new Schema({
         required: true,
         trim: true
     },
-    addressTwo: {
-        type: String,
-        required: true,
-        trim: true
-    },
     city: {
         type: String,
         required: true,
