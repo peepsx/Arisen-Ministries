@@ -415,3 +415,24 @@
 .card-img-top {
   max-height: 216px;
 }
+
+table.backend-data {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.backend-data td, .backend-data th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.backend-data tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.donation-head {
+  text-align: center;
+  padding: 20px 0;
+}

@@ -12,6 +12,7 @@ router.post('/paypalpayment',validation.validate('paypalPayment'),controller.pay
 router.post('/paypalonetimepayment',controller.paypalonetimepayment)
 // router.get('/amount', controller.totalamount)
 router.post('/sendemail',controller.sendmail)
+router.get('/getalldonationdetails',controller.getalldonationdetails)
 
 
 

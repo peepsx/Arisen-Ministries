@@ -37,12 +37,12 @@ class Users {
                 'status': 'subscribed',
             })
             .end(function (err, response) {
-                console.log('=========>res',response.body)
+                console.log('=========>res', response.body)
                 if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-                    
-                    return res.json({ status: true, message: 'Mail subscibed' , data:response.body });
+
+                    return res.json({ status: true, message: 'Mail subscibed', data: response.body });
                 } else {
-                    return res.json({ status: false, message: 'Mail not subscibed' ,  data:response.body });
+                    return res.json({ status: false, message: 'Mail not subscibed', data: response.body });
                 }
             });
 
@@ -225,6 +225,18 @@ class Users {
         }).catch((e) => {
             console.log("exception", e)
         })
+    }
+
+
+    getalldonationdetails(req, res) {
+        Paypalonetimepayment.find().then((details) => {
+            if (details) {
+                res.json({ status: true, message: "Data fetched", data: details })
+            }
+        }).catch((err) => {
+            res.json({ status: false, message: "Something went wrong", data: err })
+        })
+
     }
 
 
