@@ -59,7 +59,7 @@
 
         window.onload = function () {
             var list;
-            axios.get('https://api.arisen.church/users/getalldonationdetails')
+            axios.get('http://localhost:3000/users/getalldonationdetails')
                 .then((result) => {
                     list = result.data.data
 
@@ -68,7 +68,7 @@
                     for (var i = 0; i < list.length; i++) {
 
                         html += "<tr>";
-                        html += "<td>" + i + 1 + "</td>";
+                        html += "<td>" + (i+1)  + "</td>";
                         html += "<td>" + list[i].amount + "</td>";
                         html += "<td>" + list[i].transectionId + "</td>";
                         html += "<td>" + list[i].paymentStatus + "</td>";
