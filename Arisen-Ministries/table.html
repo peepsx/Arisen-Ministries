@@ -34,6 +34,7 @@
     <h3 class="donation-head">Donation Details</h3>
     <table id="tabledata" class="backend-data">
         <tr>
+            <th>S.No</th>
             <th>Amount</th>
             <th>TransectionId</th>
             <th>PaymentStatus</th>
@@ -49,7 +50,7 @@
         <tbody id="tbody">
 
         </tbody>
-       
+
 
     </table>
 
@@ -67,11 +68,11 @@
                     for (var i = 0; i < list.length; i++) {
 
                         html += "<tr>";
-
+                        html += "<td>" + i + 1 + "</td>";
                         html += "<td>" + list[i].amount + "</td>";
                         html += "<td>" + list[i].transectionId + "</td>";
                         html += "<td>" + list[i].paymentStatus + "</td>";
-                        html += "<td>" + list[i].fname +" "+list[i].lname + "</td>";
+                        html += "<td>" + list[i].fname + " " + list[i].lname + "</td>";
                         html += "<td>" + list[i].email + "</td>";
                         html += "<td>" + list[i].addressOne + "</td>";
                         html += "<td>" + list[i].addressTwo + "</td>";
@@ -83,7 +84,7 @@
                         html += "</tr>";
                     }
                     html += "</table>";
-                    document.getElementById("tbody").innerHTML=html;
+                    document.getElementById("tbody").innerHTML = html;
 
 
                 })
