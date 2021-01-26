@@ -58,7 +58,7 @@
 
         window.onload = function () {
             var list;
-            axios.get('http://localhost:3000/users/getalldonationdetails')
+            axios.get('https://api.arisen.church/users/getalldonationdetails')
                 .then((result) => {
                     list = result.data.data
 
@@ -66,7 +66,6 @@
                     var html = "<table border='1|1'>";
                     for (var i = 0; i < list.length; i++) {
 
-                        console.log("onetable", list[i].amount, list[i].transectionId, list[i].paymentStatus, list[i].email, list[i].addressOne)
                         html += "<tr>";
 
                         html += "<td>" + list[i].amount + "</td>";
@@ -89,7 +88,6 @@
 
                 })
                 .catch((errors) => {
-                    console.log('=========', errors)
                 })
         };
 
