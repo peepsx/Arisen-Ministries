@@ -59,7 +59,7 @@
 
         window.onload = function () {
             var list;
-            axios.get('http://localhost:3000/users/getalldonationdetails')
+            axios.get('https://api.arisen.church/users/getalldonationdetails')
                 .then((result) => {
                     list = result.data.data
 
