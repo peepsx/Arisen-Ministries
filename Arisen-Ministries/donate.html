@@ -96,192 +96,183 @@
           <div class="text-center">
             <h1 class="display-4 font-alt-1 text-center mt-2" style="color: #000;">Donate</h1>
           </div>
-          <form class="wizard card">
-            <ul class="nav nav-tabs card-header text-center bg-light p-0">
-              <li class="nav-item flex-fill">
-                <a class="nav-link" href="#first">1. Your Donation </a>
-              </li>
-              <li class="nav-item flex-fill">
-                <a class="nav-link" href="#second">2. Your Billing Info</a>
-              </li>
-              <li class="nav-item flex-fill">
-                <a class="nav-link" href="#third">3. Choose Payment Method</a>
-              </li>
-              <!-- <li class="nav-item flex-fill">
-                <a class="nav-link" href="#fourth">4. Payment</a>
-              </li> -->
-              <li class="nav-item flex-fill">
-                <a class="nav-link" href="#fourth">4. Succes</a>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div id="first">
 
+          <ul class="nav nav-tabs bg-light" role="tablist">
+            <li class="nav-item flex-fill">
+              <a class="nav-link active" data-toggle="tab" href="#first">1. Your Donation</a>
+            </li>
+            <li class="nav-item flex-fill">
+              <a class="nav-link" data-toggle="tab" href="#second">2. Shipping Info</a> 
+            </li>
+            <li class="nav-item flex-fill">
+              <a class="nav-link" data-toggle="tab" href="#third">3. Donate</a>
+            </li>
+            <li class="nav-item flex-fill">
+                <a class="nav-link" data-toggle="tab" href="#fourth">4. Succes</a>
+              </li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="first" class="container tab-pane active"><br>
                 <div class="card-body py-4">
-                  <h3>Choose a donation amount</h3>
-                  <p>Choose your donation amount below:</p>
-                  <!-- <form> -->
-                  <div class="row" id="amounts">
-                    <div class="col-sm-3">
+                    <h3>Choose a donation amount</h3>
+                    <p>Choose your donation amount below:</p>
+                    <!-- <form> -->
+                    <div class="row" id="amounts">
+                      <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="custom-control custom-radio mb-1">
+                              <input type="radio" id="amountRadio1" name="amountRadio" class="custom-control-input"
+                                value="1" checked="checked">
+                              <label class="custom-control-label" for="amountRadio1">$1</label>
+                            </div>
+    
+                          </div>
+                        </div>
+                      <div class="col-sm-3">
                         <div class="form-group">
                           <div class="custom-control custom-radio mb-1">
-                            <input type="radio" id="amountRadio1" name="amountRadio" class="custom-control-input"
-                              value="1" checked="checked">
-                            <label class="custom-control-label" for="amountRadio1">$1</label>
+                            <input type="radio" id="amountRadio2" name="amountRadio" class="custom-control-input"
+                              value="100">
+                            <label class="custom-control-label" for="amountRadio2">$100</label>
                           </div>
   
                         </div>
                       </div>
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <div class="custom-control custom-radio mb-1">
-                          <input type="radio" id="amountRadio2" name="amountRadio" class="custom-control-input"
-                            value="100">
-                          <label class="custom-control-label" for="amountRadio2">$100</label>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="amountRadio3" name="amountRadio" class="custom-control-input"
-                            value="500">
-                          <label class="custom-control-label" for="amountRadio3">$500</label>
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="amountRadio3" name="amountRadio" class="custom-control-input"
+                              value="500">
+                            <label class="custom-control-label" for="amountRadio3">$500</label>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="amountRadio4" name="amountRadio" class="custom-control-input"
-                            value="2000">
-                          <label class="custom-control-label" for="amountRadio4">$2000</label>
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="amountRadio4" name="amountRadio" class="custom-control-input"
+                              value="2000">
+                            <label class="custom-control-label" for="amountRadio4">$2000</label>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <!-- </form> -->
+                    <!-- <p>Is this a one-time donation or a recurring donation?"</p> -->
+                    <!-- <form> -->
+                    <!-- <div class="custom-control custom-radio mb-1">
+                      <input type="radio" id="asktimeRadio1" name="asktimeRadio" class="custom-control-input">
+                      <label class="custom-control-label" for="asktimeRadio1">One-Time</label>
+                    </div> -->
+                    <!-- <div class="custom-control custom-radio">
+                      <input type="radio" id="asktimeRadio2" name="asktimeRadio" class="custom-control-input">
+                      <label class="custom-control-label" for="asktimeRadio2">Recurring</label>
+                    </div> -->
+                    <!-- </form> -->
+  
+                    <button class="btn btn-primary margin-20" onclick=firstNextButton()>Next Step</button>
                   </div>
-                  <!-- </form> -->
-                  <!-- <p>Is this a one-time donation or a recurring donation?"</p> -->
-                  <!-- <form> -->
-                  <!-- <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="asktimeRadio1" name="asktimeRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="asktimeRadio1">One-Time</label>
-                  </div> -->
-                  <!-- <div class="custom-control custom-radio">
-                    <input type="radio" id="asktimeRadio2" name="asktimeRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="asktimeRadio2">Recurring</label>
-                  </div> -->
-                  <!-- </form> -->
-
-                  <button class="btn btn-primary sw-btn-next margin-20" onclick="firstNextButton()">Next Step</button>
-                </div>
-              </div>
-              <div id="second">
-                <div class="card-body py-4">
-                  <h3>Enter your billing information</h3>
-                  <!-- <form> -->
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="fname" placeholder="First Name*">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="lname" placeholder="Last Name*">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="Email*">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="addressone" placeholder="Your Full Address*">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="city" placeholder="City*">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="state" placeholder="State*">
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="number" class="form-control" id="zipcode" placeholder="Zip Code*">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input name="name" type="text" class="form-control" id="country" placeholder="Country*">
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- </form> -->
-
-                  <button class="btn btn-primary margin-20" type="button" onclick="secondNextButton()">Next
-                    Step</button>
-
-                </div>
-              </div>
-              <div id="third">
-                <div class="card-body py-4">
-                  <h3>Choose payment method for your donation.</h3>
-                  <!-- <form> -->
-                  <!-- <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="paymentRadio1" name="paymentRadio" class="custom-control-input"
-                      value="Stripe" checked>
-                    <label class="custom-control-label" for="paymentRadio1">Credit Card / Debit Card</label>
-                  </div> -->
-                  <!-- <div class="custom-control custom-radio">
-                    <input type="radio" id="paymentRadio2" name="paymentRadio" class="custom-control-input"
-                      value="Paypal">
-                    <label class="custom-control-label" for="paymentRadio2">PayPal</label>
-                  </div> -->
-                  <!-- </form> -->
-                  <div class="flex-container payment-optn">
-                    <div id="paypal-button-container"></div>
-
-                    <!-- <button type="button" class="btn btn-primary btn-blue" data-toggle="modal"
-                      data-target="#myModal">Pay With Card</button> -->
-
-                  </div>
-                  <!-- <button class="btn btn-primary margin-20" type="button" onclick="thirdNextButton()">Next Step</button> -->
-                </div>
-              </div>
-              <!-- <div id="fourth">
-                <div class="card-body py-4">
-                  <h3>Make "one-time" or "recurring" donation of "amount"</h3>
-                  <p>Other functionalities to be added here</p>
-                  <button class="btn btn-primary sw-btn-next" type="submit">Next Step</button>
-                </div>
-              </div> -->
-              <div id="fourth">
-                <div class="card-body py-4">
-                  <h3>Kindly Check your Email, Thank you so much for your donation of $<spam id="amountdonated"></spam> and helping further this
-                    decentralized dream of ours.<br/>Your TransectionId is <spam id="TransectionId"></spam>
-                  </h3>
-                  <!-- <button class="btn btn-success" type="submit">Submit</button> -->
-                </div>
-              </div>
             </div>
-          </form>
+            
+                <div id="second" class="container tab-pane fade"><br>
+                    <div class="card-body py-4">
+                        <h3>Shipping Info</h3>
+                        <!-- <form> -->
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="fname" placeholder="First Name*">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="lname" placeholder="Last Name*">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <input name="email" type="email" class="form-control" id="email" placeholder="Email*">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="addressone" placeholder="Your Full Address*">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="city" placeholder="City*">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="state" placeholder="State*">
+                            </div>
+                          </div>
+      
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="number" class="form-control" id="zipcode" placeholder="Zip Code*">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <input name="name" type="text" class="form-control" id="country" placeholder="Country*">
+                            </div>
+                          </div>
+                        </div>
+      
+                        <!-- </form> -->
+      
+                        <button class="btn btn-primary margin-20" type="button" onclick="secondNextButton()">Next
+                          Step</button>
+      
+                      </div>
+                </div>
+           
+            <div id="third" class="container tab-pane fade"><br>
+                <div class="card-body py-4">
+                  <h3>Donate through Paypal</h3>
+                    <!-- <form> -->
+                    <!-- <div class="custom-control custom-radio mb-1">
+                      <input type="radio" id="paymentRadio1" name="paymentRadio" class="custom-control-input"
+                        value="Stripe" checked>
+                      <label class="custom-control-label" for="paymentRadio1">Credit Card / Debit Card</label>
+                    </div> -->
+                    <!-- <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio2" name="paymentRadio" class="custom-control-input"
+                        value="Paypal">
+                      <label class="custom-control-label" for="paymentRadio2">PayPal</label>
+                    </div> -->
+                    <!-- </form> -->
+                    <div class="flex-container payment-optn">
+                      <div id="paypal-button-container"></div>
+  
+                      <!-- <button type="button" class="btn btn-primary btn-blue" data-toggle="modal"
+                        data-target="#myModal">Pay With Card</button> -->
+  
+                    </div>
+                    <!-- <button class="btn btn-primary margin-20" type="button" onclick="thirdNextButton()">Next Step</button> -->
+                  </div>
+            </div>
+            <div id="fourth" class="container tab-pane fade"><br>
+                <div class="card-body py-4">
+                    <h3>Kindly Check your Email, Thank you so much for your donation of $<spam id="amountdonated"></spam> and helping further this
+                      decentralized dream of ours.<br/>Your TransectionId is <spam id="TransectionId"></spam>
+                    </h3>
+                    <!-- <button class="btn btn-success" type="submit">Submit</button> -->
+                  </div>
+            </div>
+          </div>
 
 
         </div>
@@ -364,15 +355,22 @@
     // --------------first next button----------------
     var amount = 1;
     function firstNextButton() {
+
+        //$('.nav-tabs a[href="#second"]').tab('show')
       if (document.getElementById('amountRadio1').checked) {
         amount = document.getElementById('amountRadio1').value;
-      } else if (document.getElementById('amountRadio2').checked) {
+        $('.nav-tabs a[href="#second"]').tab('show')
+      }  if (document.getElementById('amountRadio2').checked) {
         amount = document.getElementById('amountRadio2').value;
-      } else if (document.getElementById('amountRadio3').checked) {
+        $('.nav-tabs a[href="#second"]').tab('show')
+      }  if (document.getElementById('amountRadio3').checked) {
         amount = document.getElementById('amountRadio3').value;
-      } else if (document.getElementById('amountRadio4').checked) {
+        $('.nav-tabs a[href="#second"]').tab('show')
+      }  if (document.getElementById('amountRadio4').checked) {
         amount = document.getElementById('amountRadio4').value;
+        $('.nav-tabs a[href="#second"]').tab('show')
       }
+     
 
 
     }
@@ -427,7 +425,7 @@
         swal({ title: "Enter valid country name!", icon: "warning" });
         return
       }
-      window.location = "#third"
+      $('.nav-tabs a[href="#third"]').tab('show')
 
     }
 
@@ -524,14 +522,14 @@
             }
             axios.post('https://api.arisen.church/users/paypalonetimepayment', object).then((result) => {
 
-              window.location = "#fourth"
+                $('.nav-tabs a[href="#fourth"]').tab('show')
 
             }).catch((error) => {
               console.log(error)
             })
 
           } else {
-            window.location = "#third"
+           
             swal({ title: "Sorry, but your payment has failed. Please try again.", icon: 'warning' });
 
           }
@@ -542,6 +540,7 @@
       },
       onCancel: function (data) {
         swal({ title: "User has cancelled the payment.", icon: 'warning' });
+
         document.getElementById("loading").style.display = "none";
 
       },
