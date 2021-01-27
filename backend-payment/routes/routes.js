@@ -13,6 +13,7 @@ router.post('/paypalonetimepayment',controller.paypalonetimepayment)
 // router.get('/amount', controller.totalamount)
 router.post('/sendemail',controller.sendmail)
 router.get('/getalldonationdetails',controller.getalldonationdetails)
+router.post('/contactmail',controller.contactmail)
 
 
 

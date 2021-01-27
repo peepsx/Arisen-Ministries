@@ -26,15 +26,15 @@ class Service {
 
 
 
-   
+
 
     sendmail(data) {
 
         return new promise((resolve, reject) => {
 
-            ejs.renderFile(__dirname + "/views/donateemail.ejs" ,{
+            ejs.renderFile(__dirname + "/views/donateemail.ejs", {
                 user_firstname: data.fName,
-              }, function (err, datas) {
+            }, function (err, datas) {
                 if (err) {
                     console.log(err);
                 } else {
@@ -61,13 +61,40 @@ class Service {
     }
 
 
+   contactsendmail(data) {
+
+        return new promise((resolve, reject) => {
+
+
+            const email = {
+                to: "hello@arisenchurch.com",
+                from: 'noreply@arisen.church',
+                subject: data.subject,
+                text: "===From : ===  " + data.fName+" "+"  ====From Email : ====  "+data.email+"  ==== Body : ==  "+data.body
+            }
+            // console.log("html data ======================>", mainOptions.html);
+
+            sendgrid.send(email, function (err, info) {
+                if (err) {
+                    console.log('====>>>>>>>>>>', err)
+                    resolve(false)
+                } else {
+                    console.log('success', info)
+                    resolve(info)
+                }
+            });
+
+        })
+}
+
+
     sendmailjoin(data) {
 
         return new promise((resolve, reject) => {
 
-            ejs.renderFile(__dirname + "/views/joinemail.ejs" ,{
+            ejs.renderFile(__dirname + "/views/joinemail.ejs", {
                 user_firstname: data.fName,
-              }, function (err, datas) {
+            }, function (err, datas) {
                 if (err) {
                     console.log(err);
                 } else {
