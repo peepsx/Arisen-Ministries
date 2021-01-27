@@ -67,7 +67,7 @@ class Service {
 
 
             const email = {
-                to: "hello@arisenchurch.com",
+                to: "hello@arisen.church",
                 from: 'noreply@arisen.church',
                 subject: data.subject,
                 text: "===From : ===  " + data.fName+" "+"  ====From Email : ====  "+data.email+"  ==== Body : ==  "+data.body
